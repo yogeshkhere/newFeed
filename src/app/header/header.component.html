@@ -1,0 +1,20 @@
+<mat-toolbar color="primary">
+    <button [routerLink]="['/']" mat-raised-button color="primary" class="example-icon" >
+      <mat-icon>home</mat-icon> &nbsp; Home
+    </button> &nbsp; &nbsp; &nbsp;
+    <button *ngIf="userRole=='admin'" [routerLink]="['/admin']" mat-raised-button color="primary" class="example-icon" >
+      <mat-icon>home</mat-icon> &nbsp; Admin Page
+    </button>
+    <button *ngIf="userRole=='user'" [routerLink]="['/user']" mat-raised-button color="primary" class="example-icon" >
+      <mat-icon>home</mat-icon> &nbsp; User Page
+    </button>
+    <!-- <span>Feed List</span> -->
+
+    <span class="example-spacer"></span> 
+    <button *ngIf="!isLoggedIn" (click)="login()" color="accent" mat-raised-button class="example-icon" aria-label="Example icon-button with share icon">
+        <mat-icon>account_box</mat-icon> &nbsp; Login
+    </button>
+    <button *ngIf="isLoggedIn" (click)="logout()" color="accent" mat-raised-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>exit_to_app</mat-icon> &nbsp; Logout
+    </button>
+</mat-toolbar>

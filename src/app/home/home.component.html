@@ -1,0 +1,15 @@
+<h3>News Feed List</h3>
+
+<div *ngFor="let list of allUserPost"  >
+    <mat-card *ngIf="list.adminAction=='approved'" class="example-card">
+        <mat-card-header>
+          <mat-card-title>{{list.username}} - Title -{{list.title}} </mat-card-title>
+        </mat-card-header>
+        <img mat-card-image [src]="previewLogo" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+          <p>
+            {{list.description}}
+          </p>
+        </mat-card-content>
+      </mat-card>
+</div>

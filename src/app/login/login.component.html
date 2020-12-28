@@ -1,0 +1,45 @@
+<mat-toolbar class="login" color="accent">
+    <span>Login</span>
+    <span class="example-spacer"></span> 
+    <button (click)="close()" color="primary" mat-mini-fab class="example-icon" aria-label="Close icon">
+        <mat-icon>close</mat-icon>
+    </button>
+</mat-toolbar>
+
+<form [formGroup]="loginForm" (ngSubmit)="loginSubmit()"   >
+    <div fxLayout="row">
+        <div class="userAdmin" fxFlex="30" >
+            <button *ngIf="!userRoleAdmin" class="changeButton" (click)="changeUserRole()" mat-raised-button color="primary">
+                Admin Login <mat-icon>change_circle</mat-icon>
+            </button>
+            <button *ngIf="userRoleAdmin" class="changeButton" (click)="changeUserRole()" mat-raised-button color="primary">
+                User Login <mat-icon>change_circle</mat-icon>
+            </button>
+        </div>
+        <div class="seprateLine"></div>
+        <div class="userAdmin" fxFlex >
+            <p *ngIf="!userRoleAdmin"  > <b>User Login</b></p>
+            <p *ngIf="userRoleAdmin"  > <b>Admin Login</b></p>
+            <p>
+                <mat-form-field appearance="outline">
+                <mat-label>Login</mat-label>
+                <input formControlName="userId" matInput placeholder=" ex : user@gmail.com">
+                <mat-icon matSuffix>account_circle</mat-icon>
+                <mat-error *ngIf="loginForm.controls['userId'].invalid">Please Enter User Id</mat-error>
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input formControlName="password" matInput placeholder="XXXXXXXX">
+                <mat-icon matSuffix>vpn_key</mat-icon>
+                <mat-error *ngIf="loginForm.controls['password'].invalid">Please Enter Password</mat-error>
+                </mat-form-field>
+            </p>
+            <div>
+                <p class="loginErrorMessage" *ngIf="loginError">{{loginError}}</p>
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="loginButton" mat-raised-button color="accent" >Login</button>
+</form>

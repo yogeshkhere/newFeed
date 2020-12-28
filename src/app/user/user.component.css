@@ -1,0 +1,30 @@
+.addPost h3 {
+    text-align: center;
+    font-weight: 600;
+    color: #003651;
+}
+.example-full-width {
+    width: 100%;
+  }
+
+.space {
+    margin: 30px;
+}
+
+.file-name{
+    text-align: center;
+}
+.file-name .mat-icon{
+    float: right;
+    cursor: pointer;
+}
+.splitLine{
+    border: 2px solid #003651;
+    height: 700px;
+}
+
+.feedPost h3 {
+    text-align: center;
+    color: #003651;
+    font-weight: 600;
+}

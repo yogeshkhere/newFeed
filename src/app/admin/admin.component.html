@@ -1,0 +1,24 @@
+<div>
+    <h3> List Of Request </h3>
+    <div *ngFor="let list of allAdminPost">
+      <mat-card  *ngIf="list.postStatus=='Pending'" class="example-card">
+        <mat-card-header>
+          <mat-card-title>{{list.username}} - Title -{{list.title}} </mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src={{previewLogo}} >
+        <mat-card-content>
+          <p>
+            {{list.description}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button (click)="adminAction('approved',list.username)" mat-button>Approve</button>
+          <button [disabled]="!rejectMessage" (click)="adminAction('rejected')" mat-button>Reject</button>
+          <mat-form-field appearance="outline">
+            <mat-label>Reject Message</mat-label>
+            <input [(ngModel)]="rejectMessage" matInput>
+            </mat-form-field>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+</div>

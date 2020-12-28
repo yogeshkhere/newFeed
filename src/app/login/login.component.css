@@ -1,0 +1,30 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+.login .mat-toolbar-row, .mat-toolbar-single-row {
+    height: 30px;
+}
+.seprateLine{
+    border: 1px solid #eee;
+    height: 200px;
+    margin-top: 40px;
+}
+.userAdmin{
+    text-align: center;
+    color: #003651;
+}
+.loginButton{
+    float: right;
+    margin-right: 150px;
+}
+.changeButton{
+    float: left;
+    margin-top: 115px;
+    margin-left: 20px;
+}
+.loginErrorMessage{
+    color: red;
+    font-weight: 800;
+    text-align: center;
+}

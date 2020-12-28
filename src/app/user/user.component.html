@@ -1,0 +1,40 @@
+<div fxLayout ="row" >
+    <div class="addPost" fxFlex="60" >
+        <h3>Add Post</h3>
+        <form  [formGroup]="addFeedForm" >
+
+            <mat-form-field appearance="outline">
+                <mat-label>Feed Title</mat-label>
+                <input formControlName="title" matInput placeholder="Title">
+                <mat-icon matSuffix>subtitles</mat-icon>
+                <mat-error *ngIf="addFeedForm.controls['title'].invalid" >Please Enter Title</mat-error>
+            </mat-form-field>
+            
+            <mat-form-field appearance="outline" class="example-full-width">
+                <mat-label>Description</mat-label>
+                <textarea formControlName="description" matInput placeholder="Enter your Description here"></textarea>
+                <mat-error *ngIf="addFeedForm.controls['description'].invalid" >Please Enter Description</mat-error>
+            </mat-form-field>
+
+            <div class="space" ></div>
+
+            <div >
+                <input style="display: none"  #fileInput type="file" accept=".png,.svg,.jpg,.jpeg" (change)="onImageChanged($event)" />
+                <button mat-raised-button *ngIf="!imageName" (click)="fileInput.click()" >Upload Image</button>
+                <div *ngIf="imageName">
+                    <div class="file-name">
+                        <p> {{imageName}} &nbsp; &nbsp; <mat-icon matSuffix (click)="cancelFile()">close</mat-icon></p>
+                    </div>
+                </div>
+            </div>
+            <div class="space" ></div>
+            <div>
+                <button style="float: left;margin-left: 375px" mat-raised-button (click)="addPost()" color="primary" >Add Post</button>
+            </div>
+        </form>
+    </div>
+    <div class="splitLine"></div>
+    <div class="feedPost" fxFlex >
+        <h3>Feed Status</h3>
+    </div>
+</div>
